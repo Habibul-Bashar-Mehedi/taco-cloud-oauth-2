@@ -31,16 +31,20 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/design", "/orders").hasRole("USER")
-                        .requestMatchers("/", "/register", "/login", "/images/**").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/", "/**").permitAll()
                 )
                 .formLogin(form -> form
+                        .loginPage("/login")
                         .defaultSuccessUrl("/design", true)
                 )
-                .build();
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/") // logout er por '/' redirect hobe
+                );
+
+        return http.build();
     }
 }

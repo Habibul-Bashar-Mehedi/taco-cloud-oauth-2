@@ -6,7 +6,15 @@
 <body>
     <h1>Welcome to home...</h1>
     <img th:src="@{/images/TacoCloud.jpg}">
-    <p>hello spring boot</p>
+
+    <p>
+        <a th:href="@{/design}">
+    <span style="font-weight: bold; font-size: large;">
+      &lt;&lt;&lt; Order Now &gt;&gt;&gt;
+    </span>
+        </a>
+    </p>
+    <p><a th:href="@{/login}">Login</a> <span style="font-weight: bold;">or</span> <a th:href="@{/register}">registration</a></p>
 
 </body>
 

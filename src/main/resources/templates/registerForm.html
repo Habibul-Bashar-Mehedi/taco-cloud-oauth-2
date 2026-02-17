@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Registration</h1>
+    <img th:src="@{/images/TacoCloud.png}"/>
     <form method="POST" th:action="@{/register}" id="registerForn">
         <label for="username" >Username: </label>
         <input type="text" name="username"/>
@@ -47,5 +48,8 @@
         <input type="submit" name="Register"/>
 
     </form>
+    <br/>
+
+    <a th:href="@{/login}">Login</a>
 </body>
 </html>
